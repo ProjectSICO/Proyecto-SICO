@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styleindex.css">
+    <title>SICO</title>
+</head>
+<script>
+    function teletipo(cad, tmp, iden, cnt) {
+        //cad: la frase que queremos escribir
+        //tmp: intervalo de tiempo
+        //iden: el nombre del marco donde se escribe
+        //cnt: lugar de la letra que le tocas ser escrita
+        if (cnt == null) cnt = 0;
+        var letra = cad.substr(cnt, 1)
+        cuadro = document.getElementById(iden);
+        while (letra == " ") {
+            cnt++;
+            letra += cad.substr(cnt, 1);
+        }
+        cuadro.innerHTML += letra;
+        cnt++
+        if (cnt < cad.length) {
+            tempor = setTimeout(teletipo, tmp, cad, tmp, iden, cnt);
+        }
+    }
+</script>
+<body>
+    <header>
+        <div class="header">
+            <div class="logo1">
+                <img src="./imagenes/Logo SICO.png" alt="logo">
+            </div>
+            <div class="toggle">
+                <button class="boton">Ingreso Administrativo</button>
+                <div class="links">
+                    <a href="InicioAdministrativo.html">Administrador</a>
+                    <a href="InicioAsignador.html">Asignador</a>
+                    <a href="InicioServicioalUsuario.html">Servicio al usuario</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h1>Sistema de Correspondencia - SICO</h1>
+        <p class="parrafo">El Sistema de correspondencia SICO, es un aplicativo diseñado para responder a tus
+            requerimientos de cupos y traslados escolares en la ciudad de Bogotá, durante el año lectivo, a
+            excepción de las fechas establecidas para el proceso de matrículas del año siguiente.
+        </p>
+        <h3 id="marco"></h3>
+        <script language="javascript">
+            teletipo("!Regístrate y envía tus solicitudes¡", 80, 'marco')
+        </script>
+        <button class="boton1" onclick="location.href='./Registro.html'">Regístrate</button>
+        <button class="boton1" onclick="location.href='./Iniciodesesion.html'">Inicia Sesión</button>
+        <div id="lienzo" style="background-image: url(imagenes/bogotá.PNG);">
+            <img src="./imagenes/carta1.png" id="imagen" alt="bogota" />
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="container">
+                <div class="list-group">
+                    <a class="list-group-item" href="#"><i class="fab fa-facebook"></i></a>
+                    <a class="list-group-item" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="list-group-item" href="#"><i class="fab fa-google"></i></a>
+                    <a class="list-group-item" href="#"><i class="fab fa-youtube"></i></a>
+                    <a class="list-group-item" href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <h4>© 2022 Copyright: Todos los derechos Reservados-SICO.com</h4>
+        </div>
+    </footer>
+</body>
+<script src="javascript/teletipo.js"></script>
+<script src="javascript/mover.js"></script>
+</html>
